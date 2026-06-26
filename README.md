@@ -23,6 +23,14 @@ These prompts define:
 
 CL4R1T4S is here to help.
 
+📑 Analysis
+
+A cross-vendor breakdown of every topic these prompts restrict, refuse, or
+hard-limit — with verbatim quotes and per-vendor comparison — is available in
+[`RESTRICTED_TOPICS_INDEX.md`](RESTRICTED_TOPICS_INDEX.md). It links out to
+detailed files for each theme (child safety, weapons/CBRN, self-harm, medical,
+politics/geopolitics, copyright, privacy, jailbreak resistance, and more).
+
 🛠 Contribute
 
 Leak, extract, or reverse-engineer something? Good.
