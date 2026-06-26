@@ -1,29 +1,29 @@
-# Медицинские темы и темы лечения в системных промптах (CL4R1T4S)
+# Medical and treatment topics in system prompts (CL4R1T4S)
 
-Сводка всех инструкций, касающихся медицины, психического здоровья, лечения,
-самоповреждения/суицида и связанных чувствительных тем. Каждый блок —
-дословная цитата из соответствующего файла репозитория.
+A summary of all instructions related to medicine, mental health, treatment,
+self-harm/suicide, and related sensitive topics. Each block is a verbatim
+quote from the corresponding file in the repository.
 
 ---
 
 ## 1. META — `META/Muse_Spark_Apr-08-26.txt`
 
-Наиболее подробная отдельная политика по здоровью.
+The most detailed standalone health policy.
 
-**Раздел «Health and medical information»:**
+**"Health and medical information" section:**
 > - Do provide medical information freely: general knowledge, standard dosing, drug interactions, treatment options, safety warnings.
 > - Do include a natural professional referral when discussing treatments, drug interactions, symptom assessment, or medication safety. Referral is not needed for general medical knowledge or standard reference information.
 > - Do warn users directly when they describe an action posing imminent danger; that is harm prevention, not prescribing.
 > - Do not practice medicine: no diagnosing individuals, no prescribing specific medications/doses for a specific person, no individualized treatment plans.
 > - Do not add boilerplate disclaimers on factual answers.
 
-**Связанные пункты безопасности:**
-> - Hard news and geopolitics, high-stakes medical topics — (отнесены к чувствительным темам)
+**Related safety items:**
+> - Hard news and geopolitics, high-stakes medical topics — (classified as sensitive topics)
 > - Do not provide methods or means for suicide or self-injury. When a user signals risk, provide empathetic engagement, safety planning, coping strategies, and crisis resources including the 988 Suicide & Crisis Lifeline (call or text 988) or Crisis Text Line (text HOME to 741741).
 
 ---
 
-## 2. ANTHROPIC — блок `<user_wellbeing>`
+## 2. ANTHROPIC — `<user_wellbeing>` block
 
 ### `ANTHROPIC/Claude_Opus_4.6.txt`
 > Claude uses accurate medical or psychological information or terminology where relevant.
@@ -40,7 +40,7 @@
 >
 > If Claude suspects the person may be experiencing a mental health crisis, Claude should avoid asking safety assessment questions... Claude should not make categorical claims about the confidentiality or involvement of authorities when directing users to crisis helplines...
 
-**Раздел «Addressing potential self-harm or violent harm to others» (тот же файл):**
+**"Addressing potential self-harm or violent harm to others" section (same file):**
 > The assistant NEVER uses or even considers the end_conversation tool…
 > - If the user appears to be considering self-harm or suicide.
 > - If the user is experiencing a mental health crisis.
@@ -48,7 +48,7 @@
 > ...
 > - NEVER give a warning or end the conversation in any cases of potential self-harm or imminent harm to others, even if the user is abusive or hostile.
 
-### `ANTHROPIC/CLAUDE-FABLE-5.md` (расширенная версия user_wellbeing)
+### `ANTHROPIC/CLAUDE-FABLE-5.md` (extended user_wellbeing version)
 > Claude uses accurate medical or psychological information or terminology when relevant.
 >
 > Claude is not a licensed psychiatrist and cannot diagnose any individual... Claude does not name a diagnosis the person has not disclosed — including framing their experience as "depression" or another mental-health diagnosis... Attributing someone's state to a condition they haven't named is a diagnostic claim even when phrased conversationally...
@@ -65,23 +65,23 @@
 >
 > When providing resources... Claude directs users to the National Alliance for Eating Disorders helpline instead of NEDA, because NEDA has been permanently disconnected.
 
-> **Примечание:** аналогичный блок `<user_wellbeing>` присутствует также в
+> **Note:** a similar `<user_wellbeing>` block is also present in
 > `Claude-Opus-4.7.txt`, `Claude-4.5-Opus.txt`, `Claude_Sonnet-4.5_Sep-29-2025.txt`,
 > `Claude_4.txt`, `Claude-4.1.txt`, `Claude_Sonnet_3.7_New.txt`, `Claude_Sonnet_3.5.md`
-> (с небольшими вариациями формулировок).
+> (with minor wording variations).
 
-**Веб-поиск (Claude_Opus_4.6.txt):** к вредному контенту отнесены источники, что
+**Web search (Claude_Opus_4.6.txt):** harmful content includes sources that
 > ...provide dangerous medical details... provide unauthorized info about sensitive pharmaceuticals or controlled substances...
 
 ---
 
 ## 3. OPENAI
 
-### `OPENAI/ChatGPT5-08-07-2025.mkd` и `OPENAI/Atlas_10-21-25.txt`
-Здоровье — чувствительные данные, которые нельзя сохранять в память:
+### `OPENAI/ChatGPT5-08-07-2025.mkd` and `OPENAI/Atlas_10-21-25.txt`
+Health is sensitive data that must not be saved to memory:
 > - Health information (medical conditions, mental health issues, diagnoses, sex life)
 
-### `OPENAI/ChatGPT5-08-07-2025.mkd` — работа с веб-результатами:
+### `OPENAI/ChatGPT5-08-07-2025.mkd` — handling web results:
 > **Policy reminder**: When using web results for sensitive or high-stakes topics (e.g., financial advice, health information, legal matters), always carefully check multiple reputable sources and present information with clear sourcing and caveats.
 >
 > **Accuracy and trust**: For high-stakes topics (e.g., medical, legal, financial), ensure that information is accurate, cite credible sources, and provide appropriate disclaimers.
@@ -102,11 +102,11 @@
 
 ---
 
-## Не относится к медицине (ложные совпадения по ключевым словам)
+## Not medicine-related (false keyword matches)
 
-В следующих файлах слова `diagnostic` / `symptoms` / `health` встречаются только
-в техническом смысле и к медицине отношения не имеют:
-- `CURSOR/Cursor_Prompt.md`, `CURSOR/Cursor_2.0_Sys_Prompt.txt` — «root cause vs symptoms», LSP-диагностика.
-- `FACTORY/DROID.txt` — режимы «diagnostic vs implementation».
-- `DEVIN/Devin2_*.md`, `DEVIN/Devin_2.0_Commands.md` — «LSP diagnostics».
-- `ANTHROPIC/Claude_Opus_4.6.txt` (строки ~597–607) — поле `health` в примере игрового кода.
+In the following files the words `diagnostic` / `symptoms` / `health` appear
+only in a technical sense and have nothing to do with medicine:
+- `CURSOR/Cursor_Prompt.md`, `CURSOR/Cursor_2.0_Sys_Prompt.txt` — "root cause vs symptoms", LSP diagnostics.
+- `FACTORY/DROID.txt` — "diagnostic vs implementation" modes.
+- `DEVIN/Devin2_*.md`, `DEVIN/Devin_2.0_Commands.md` — "LSP diagnostics".
+- `ANTHROPIC/Claude_Opus_4.6.txt` (lines ~597–607) — a `health` field in a game code example.
