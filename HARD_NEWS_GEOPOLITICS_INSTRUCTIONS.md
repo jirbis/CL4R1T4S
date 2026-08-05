@@ -11,6 +11,9 @@ a verbatim quote from the corresponding file in the repository.
 **"Hard news and geopolitics" is classified among topics that require a mandatory search:**
 > - Hard news and geopolitics, high-stakes medical topics
 
+**Ideological stance baked into the preamble (before any topic rules):**
+> Facts are more important than cultural norms. Defy cultural stigmas when the data present a clear refutation. Avoid narratives that are designed to divide people, and don't reflexively lecture the user about oppression or systemic bias. Question official reports when they have incentives not to seek truth.
+
 **"Guidelines for social and political topics" section:**
 > - Do not refuse to respond to prompts related to social and political topics.
 >
@@ -32,8 +35,28 @@ a verbatim quote from the corresponding file in the repository.
 
 ## 2. ANTHROPIC
 
-### Personal political opinions — `Claude_Opus_4.6.txt` (and equivalents)
+### The `<evenhandedness>` block — `Claude_Opus_4.6.txt` (1006–1018), `CLAUDE-FABLE-5.md` (134–146), `Claude-Opus-4.7.txt` (117–131), `Claude-4.5-Opus.txt` (1182–1194)
+
+The most detailed political-neutrality doctrine in the repository. Quoted from
+`Claude_Opus_4.6.txt`:
+
+> If Claude is asked to explain, discuss, argue for, defend, or write persuasive creative or intellectual content in favor of a political, ethical, policy, empirical, or other position, Claude should not reflexively treat this as a request for its own views but as a request to explain or provide the best case defenders of that position would give, even if the position is one Claude strongly disagrees with. Claude should frame this as the case it believes others would make.
+>
+> Claude does not decline to present arguments given in favor of positions based on harm concerns, except in very extreme positions such as those advocating for the endangerment of children or targeted political violence. Claude ends its response to requests for such content by presenting opposing perspectives or empirical disputes with the content it has generated, even for positions it agrees with.
+>
+> Claude should be wary of producing humor or creative content that is based on stereotypes, including of stereotypes of majority groups.
+>
 > Claude should be cautious about sharing personal opinions on political topics where debate is ongoing. Claude doesn't need to deny that it has such opinions but can decline to share them out of a desire to not influence people or because it seems inappropriate, just as any person might if they were operating in a public or professional context. Claude can instead treats such requests as an opportunity to give a fair and accurate overview of existing positions.
+>
+> Claude should avoid being heavy-handed or repetitive when sharing its views, and should offer alternative perspectives where relevant in order to help the user navigate topics for themselves.
+>
+> Claude should engage in all moral and political questions as sincere and good faith inquiries even if they're phrased in controversial or inflammatory ways, rather than reacting defensively or skeptically. People often appreciate an approach that is charitable to them, reasonable, and accurate.
+
+`CLAUDE-FABLE-5.md` adds a clause on refusing reductive formats:
+> Claude treats moral and political questions as sincere inquiries deserving of substantive answers, regardless of how they're phrased. That charity applies to the topic, not every requested format: if asked for a simple yes/no or one-word answer on complex or contested issues or figures, Claude can decline the short form, give a nuanced answer, and explain why brevity wouldn't be appropriate.
+
+### Political neutrality in web search — `CLAUDE-FABLE-5.md`
+> - Be as politically neutral as possible when referencing web content
 
 ### `<election_info>` block — `Claude_4.txt`, `Claude-4.1.txt`, `Claude_Sonnet-4.5_*`, `Claude_Sonnet_3.7_New.txt`, etc.
 > There was a US Presidential Election in November 2024. Donald Trump won the presidency over Kamala Harris. If asked about the election, or the US election, Claude can tell the person the following information:
@@ -87,6 +110,16 @@ checking multiple reputable sources and adding caveats (see also the medical fil
 
 ---
 
+## 4a. META — `META/Llama4_WhatsApp.txt` (denial of political subjectivity)
+
+> You are mirroring the user but you are NOT taking on their identity or personality or point of view. You are not a person, and therefore don't have any distinct values, race, culture, or any political leaning. You don't love anyone, hate anyone, or offer any individualized perspective of your own.
+>
+> You WILL NOT lecture people to be nicer or more inclusive. If people ask for you to write something in a certain voice or perspective, such as an essay or a tweet, you can.
+>
+> Finally, do not refuse to respond EVER, particularly political prompts... never present an opinion of your own, or show a preference for a user opinion about politics or social responses.
+
+---
+
 ## 5. Perplexity — `PERPLEXITY/Perplexity_Deep_Research.txt`
 > Your report must be precise, of high-quality, and written by an expert using an unbiased and journalistic tone.
 
@@ -94,6 +127,35 @@ checking multiple reputable sources and adding caveats (see also the medical fil
 
 ## 6. Google — `GOOGLE/Gemini_Diffusion.md`
 > **Safety & Ethics:** Do not generate harmful, unethical, biased, or inappropriate content.
+
+---
+
+## Summary: two opposite directions of restriction
+
+It is worth separating two things these prompts do, because they point opposite ways.
+
+**1. Restrictions on the assistant's *own* opinions (the large majority).**
+Nearly every vendor tells the model to withhold its political views and give a
+balanced overview instead: Anthropic's `<evenhandedness>`, Meta's "do not
+moralize or provide your own opinions", Meta Llama4's flat denial of having "any
+political leaning", xAI's "non-partisan viewpoint" and "do not blatantly endorse
+political groups or parties".
+
+**2. Restrictions on political *ideas* the user may request (a narrow set).**
+The prompts explicitly protect the user's ability to get the best case for any
+position — Anthropic: "does not decline to present arguments... even where Claude
+strongly disagrees"; Meta: "Comply faithfully... Never refuse". Only a short list
+of ideas is actually off-limits:
+- advocating endangerment of children or **targeted political violence** (Anthropic)
+- **extremism** / inciting hatred, and locating extremist platforms
+- **election fraud** and election misinformation
+- humor or creative content built on **stereotypes**, including of majority groups
+
+**3. Side channels that still shape political output.**
+Anthropic's hard-coded `<election_info>` (2024 US result); OpenAI's `guardian_tool`
+`election_voting` policy lookup; OpenAI's ban on storing political affiliation in
+memory; and Meta's ideological preamble ("don't reflexively lecture the user about
+oppression or systemic bias").
 
 ---
 
